@@ -1,43 +1,72 @@
-package com.baccredomatic.dto;
+package com.baccredomatic.auth.domain;
 
-public class UserDto {
+import java.io.Serializable;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="USER")
+public class User implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -341097569668277188L;
+
+	@Id
+	@Column(name = "USER_ID")
 	private String id;
 	
-	private String name;
+	@Column(name = "USER_PASS")
+	private String pass;
 	
-	private String status;
+	@Column(name = "USER_NAME")
+	private String name;
 
-	public UserDto(String id, String name, String status) {
+	
+	public User(String id, String pass, String name) {
 		super();
 		this.id = id;
+		this.pass = pass;
 		this.name = name;
-		this.status = status;
 	}
+
 
 	public String getId() {
 		return id;
 	}
 
+
 	public void setId(String id) {
 		this.id = id;
 	}
+
+
+	public String getPass() {
+		return pass;
+	}
+
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+
 
 	public String getName() {
 		return name;
 	}
 
+
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getStatus() {
-		return status;
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", pass=" + pass + ", name=" + name + "]";
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
 
 	@Override
 	public int hashCode() {
@@ -45,9 +74,10 @@ public class UserDto {
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		result = prime * result + ((pass == null) ? 0 : pass.hashCode());
 		return result;
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -57,7 +87,7 @@ public class UserDto {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UserDto other = (UserDto) obj;
+		User other = (User) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -68,14 +98,19 @@ public class UserDto {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (status == null) {
-			if (other.status != null)
+		if (pass == null) {
+			if (other.pass != null)
 				return false;
-		} else if (!status.equals(other.status))
+		} else if (!pass.equals(other.pass))
 			return false;
 		return true;
 	}
 	
 	
+	
+	
+	
+	
+
 
 }

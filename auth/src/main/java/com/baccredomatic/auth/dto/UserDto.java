@@ -1,72 +1,43 @@
-package com.baccredomatic.domain;
+package com.baccredomatic.auth.dto;
 
-import java.io.Serializable;
-
-import javax.persistence.*;
-
-@Entity
-@Table(name="USER")
-public class User implements Serializable{
+public class UserDto {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -341097569668277188L;
-
-	@Id
-	@Column(name = "USER_ID")
 	private String id;
 	
-	@Column(name = "USER_PASS")
-	private String pass;
-	
-	@Column(name = "USER_NAME")
 	private String name;
-
 	
-	public User(String id, String pass, String name) {
+	private String status;
+
+	public UserDto(String id, String name, String status) {
 		super();
 		this.id = id;
-		this.pass = pass;
 		this.name = name;
+		this.status = status;
 	}
-
 
 	public String getId() {
 		return id;
 	}
 
-
 	public void setId(String id) {
 		this.id = id;
 	}
-
-
-	public String getPass() {
-		return pass;
-	}
-
-
-	public void setPass(String pass) {
-		this.pass = pass;
-	}
-
 
 	public String getName() {
 		return name;
 	}
 
-
 	public void setName(String name) {
 		this.name = name;
 	}
 
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", pass=" + pass + ", name=" + name + "]";
+	public String getStatus() {
+		return status;
 	}
 
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	@Override
 	public int hashCode() {
@@ -74,10 +45,9 @@ public class User implements Serializable{
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((pass == null) ? 0 : pass.hashCode());
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -87,7 +57,7 @@ public class User implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		UserDto other = (UserDto) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -98,19 +68,14 @@ public class User implements Serializable{
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (pass == null) {
-			if (other.pass != null)
+		if (status == null) {
+			if (other.status != null)
 				return false;
-		} else if (!pass.equals(other.pass))
+		} else if (!status.equals(other.status))
 			return false;
 		return true;
 	}
 	
 	
-	
-	
-	
-	
-
 
 }
