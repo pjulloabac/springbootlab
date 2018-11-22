@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import domain.User;
 
 @Repository
-public interface UsersRepository extends CrudRepository<String, User> {
+public interface UsersRepository extends CrudRepository<User, String> {
+
 
 }
