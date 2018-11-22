@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
+@Table(name="USER")
 public class User implements Serializable{
 	
 	/**
@@ -13,12 +14,13 @@ public class User implements Serializable{
 	private static final long serialVersionUID = -341097569668277188L;
 
 	@Id
+	@Column(name = "USER_ID")
 	private String id;
 	
-	@Column
+	@Column(name = "USER_PASS")
 	private String pass;
 	
-	@Column
+	@Column(name = "USER_NAME")
 	private String name;
 
 	
